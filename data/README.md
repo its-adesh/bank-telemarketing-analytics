@@ -12,7 +12,7 @@ The workbook is not included in this repository.
 
 The workbook contains customer details, campaign contact history, and the term-deposit subscription outcome.
 
-It also includes the additional field `Int.Rate09`. A standard Bank Marketing download may need adjustments before it can run with these notebooks.
+It also includes the additional fields `Int.R08` and `Int.Rate09`. A standard Bank Marketing download may need adjustments before it can run with these notebooks.
 
 See the [data dictionary](../docs/data_dictionary.md) for the fields and preparation steps.
 
