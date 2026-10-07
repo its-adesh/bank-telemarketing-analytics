@@ -78,9 +78,17 @@ The findings come from historical data. A campaign test would be needed to measu
 - [Read the case study (PDF)](reports/bank_marketing_case_study.pdf)
 - [Download the PowerPoint](reports/bank_marketing_case_study.pptx)
 
+### Tableau dashboard
+
+[Download the dashboard](tableau/bank_marketing_dashboard.twbx)
+
+I built an interactive dashboard to explore subscription rates by customer cluster and job. Select a bar to filter the charts and summary numbers.
+
+Download the workbook and open it in Tableau to use the filters.
+
 ## Project status
 
-The notebooks, documentation, charts, and case-study presentation are available. The Tableau workbook will be added next.
+The notebooks, documentation, charts, case-study presentation, and Tableau dashboard are available.
 
 ## Acknowledgement
 
