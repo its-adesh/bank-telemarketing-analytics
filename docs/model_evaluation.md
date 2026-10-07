@@ -70,6 +70,20 @@ I would compare prediction thresholds against the campaign budget and calling ca
 
 These results measure prediction performance on historical data. Campaign impact would need to be measured through the proposed test.
 
+## Model charts
+
+### ROC curve
+
+![ROC curve for weighted LightGBM](../reports/figures/roc_curve.png)
+
+The weighted LightGBM model achieved a ROC-AUC score of 0.7752, shown as 0.78 in the chart.
+
+### SHAP summary
+
+![SHAP summary for weighted LightGBM](../reports/figures/shap_summary.png)
+
+I used SHAP to explore how different features influenced predictions. Points to the right push predictions towards a subscription; points to the left push them away.
+
 ## Notebook
 
 [View my subscription prediction analysis](../notebooks/02_subscription_prediction.ipynb)
