@@ -1,67 +1,77 @@
 # Bank Telemarketing Analytics
 
-A business analytics project exploring customer behaviour and term-deposit subscriptions to help inform bank marketing decisions.
+A business analytics project exploring customer behaviour and term-deposit subscriptions to support bank marketing decisions.
 
 ## Business problem
 
-Contacting every customer takes time and resources. This project explores how customer data could help a bank decide who to contact and how to tailor its campaigns.
+Contacting customers takes time and resources. I explored how customer data could help a bank prioritise outreach and plan more targeted campaigns.
 
 ## Key questions
 
 - Which customer groups have higher subscription rates?
 - What customer traits are linked to subscriptions?
-- Can prediction models help identify potential subscribers?
+- Can prediction models help identify likely subscribers?
 - How could these findings support campaign planning?
 
 ## My approach
 
-### Understanding customer groups
-Used K-means clustering to group customers with similar traits, then compared their profiles and subscription rates.
+### Customer segmentation
 
-### Predicting subscriptions
-Compared several models to estimate which customers were likely to subscribe to a term deposit.
+I used K-means clustering to group customers with similar traits, then compared their profiles and subscription rates.
 
-Reviewed precision and recall alongside other measures to understand the trade-off between contacting unlikely subscribers and missing potential customers.
+### Subscription prediction
 
-### Explaining the results
-Used charts and SHAP analysis to explore what influenced model predictions and make the results easier to explain.
+I compared Logistic Regression, Decision Tree, Random Forest, XGBoost, and LightGBM models.
 
-## Business relevance
+I reviewed precision, recall, F1-score, and accuracy to understand how well each model identified subscribers and where it made mistakes.
 
-The analysis could help a marketing team:
+### Explaining predictions
 
-- Prioritise customer groups for outreach.
-- Tailor messages to different customer profiles.
-- Make more informed decisions about campaign resources.
-- Plan targeted campaigns for further testing.
-
-These are potential uses of the analysis. The project does not measure actual campaign savings or increases in subscriptions.
+I used charts and SHAP analysis to explore what influenced the model's predictions and explain the results.
 
 ## Key findings
 
-- Cluster 0 had the highest subscription rate at 22.7%, compared with 8.8% in the largest group, Cluster 1. This suggests a customer group worth exploring for targeted campaigns.
-- Giving more weight to subscribers during LightGBM training increased recall from 21% to 61%. This helped identify more actual subscribers, but precision fell from 64% to 32%, meaning more unsuccessful contacts.
-- The five customer groups overlapped, with a silhouette score of 0.17. These groups are a starting point for exploration and need further validation before use in campaigns.
+- **Subscription rates varied across customer groups.** Cluster 0 had the highest rate at 22.7%, compared with 8.8% in Cluster 1, the largest group.
+- **Class weighting helped identify more subscribers.** On the test set, LightGBM's recall increased from around 21% to 61%, while precision fell from 64% to 32%. It identified more actual subscribers but also incorrectly flagged more non-subscribers.
+- **The customer groups overlapped.** The five-cluster solution had a silhouette score of approximately 0.17. I treat these groups as broad profiles for exploration.
 
-## What this means for the business
+## Business recommendations
 
-A useful next step would be to test a targeted campaign with a small customer group. The bank could compare subscription rates and contact costs before deciding whether to expand it.
+Based on the analysis, I recommend:
+
+- Testing targeted outreach to the group with the highest historical subscription rate.
+- Choosing a prediction threshold that fits the team's calling capacity and contact budget.
+- Checking whether the customer profiles and model performance remain consistent in newer data.
+- Comparing subscription rates and cost per subscription in a small campaign test before expanding it.
+
+The findings come from historical data. A campaign test would be needed to measure actual business impact.
 
 ## Tools used
 
-- Python for data preparation, customer segmentation, and prediction.
-- Matplotlib and Seaborn for charts.
-- SHAP for explaining model predictions.
-- Tableau for exploring customer data.
+- **Python:** Data preparation, customer segmentation, and prediction.
+- **pandas and NumPy:** Data handling.
+- **scikit-learn, XGBoost, and LightGBM:** Modelling and evaluation.
+- **Matplotlib and Seaborn:** Charts.
+- **SHAP:** Model explanations.
+- **Tableau:** Data exploration.
 
-## Explore the analysis
+## Explore the project
 
-- [Customer segmentation notebook](notebooks/01_customer_segmentation.ipynb)
-- [Subscription prediction notebook](notebooks/02_subscription_prediction.ipynb)
+### Notebooks
+
+- [Customer segmentation](notebooks/01_customer_segmentation.ipynb)
+- [Subscription prediction](notebooks/02_subscription_prediction.ipynb)
+
+### Documentation
+
+- [Data dictionary](docs/data_dictionary.md)
+- [Customer segmentation findings](docs/segmentation.md)
+- [Model evaluation](docs/model_evaluation.md)
+- [Business recommendations](docs/business_impact.md)
 
 ## Project status
 
-The notebooks are available now. Reports, charts, and supporting documentation will be added next. The Tableau workbook will be added once repaired.
+The notebooks and supporting documentation are available. Reports, charts, and the Tableau workbook will be added next.
 
 ## Acknowledgement
 
