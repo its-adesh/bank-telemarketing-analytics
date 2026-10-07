@@ -35,6 +35,10 @@ I used charts and SHAP analysis to explore what influenced the model's predictio
 - **Class weighting helped identify more subscribers.** On the test set, LightGBM's recall increased from around 21% to 61%, while precision fell from 64% to 32%. It identified more actual subscribers but also incorrectly flagged more non-subscribers.
 - **The customer groups overlapped.** The five-cluster solution had a silhouette score of approximately 0.17. I treat these groups as broad profiles for exploration.
 
+![Subscription rates by customer group](reports/figures/cluster_subscription_rates.png)
+
+Cluster 0 had the highest subscription rate at 22.7%. Chart values are shown as proportions: 0.227 means 22.7%.
+
 ## Business recommendations
 
 Based on the analysis, I recommend:
@@ -71,7 +75,7 @@ The findings come from historical data. A campaign test would be needed to measu
 
 ## Project status
 
-The notebooks and supporting documentation are available. Reports, charts, and the Tableau workbook will be added next.
+The notebooks, supporting documentation, and customer subscription chart are available. Reports, more charts, and the Tableau workbook will be added next.
 
 ## Acknowledgement
 
