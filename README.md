@@ -73,6 +73,11 @@ The findings come from historical data. A campaign test would be needed to measu
 - [Model evaluation](docs/model_evaluation.md)
 - [Business recommendations](docs/business_impact.md)
 
+### Presentation
+
+- [Read the case study (PDF)](reports/bank_marketing_case_study.pdf)
+- [Download the PowerPoint](reports/bank_marketing_case_study.pptx)
+
 ## Project status
 
 The notebooks, supporting documentation, and customer subscription chart are available. Reports, more charts, and the Tableau workbook will be added next.
