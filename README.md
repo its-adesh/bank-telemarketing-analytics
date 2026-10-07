@@ -84,7 +84,7 @@ The findings come from historical data. A campaign test would be needed to measu
 
 Select a customer cluster or job to filter the charts and summary numbers.
 
-[Download the Tableau workbook](tableau/bank_marketing_dashboard.twbx)
+[Download the Tableau workbook](tableau/bank_marketing_dashboard.twb)
 
 ## Project status
 
