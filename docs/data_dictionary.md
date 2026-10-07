@@ -36,7 +36,7 @@ This guide explains the fields I used and how I prepared them for analysis.
 
 I converted `yes` to 1 and `no` to 0.
 
-I used `y` as the target for prediction. For clustering, I excluded it from the inputs and used it afterwards to compare subscription rates across the groups.
+I Used `y` as the target for prediction. For clustering, I excluded it from the inputs and used it afterwards to compare subscription rates across the groups.
 
 ## Additional workbook fields
 
@@ -60,7 +60,7 @@ I grouped customers by the time since their previous contact.
 | More than 365 days | Dormant Customers |
 | Other values | Other |
 
-I used these labels to describe contact timing. They do not measure customer interest or engagement directly.
+Used these labels to describe contact timing. They do not measure customer interest or engagement directly.
 
 ### previous_category
 
@@ -77,10 +77,10 @@ I grouped customers by their number of previous contacts.
 
 ## Data preparation
 
-- I removed `Int.R08`, `day`, `month`, `duration`, and `campaign`.
-- I replaced `pdays` and `previous` with the categories above.
-- I converted categorical inputs into numeric indicator columns using one-hot encoding.
-- I applied scaling before modelling.
+- Removed `Int.R08`, `day`, `month`, `duration`, and `campaign`.
+- Replaced `pdays` and `previous` with the categories above.
+- Converted categorical inputs into numeric indicator columns using one-hot encoding.
+- Applied scaling before modelling.
 
 Call duration is only available after a call, so excluding it keeps that information out of predictions intended for use before contact.
 
