@@ -2,9 +2,7 @@
 
 ## What the analysis suggests
 
-Customer groups had different subscription rates, and the prediction models showed a trade-off between finding more subscribers and contacting more people who would not subscribe.
-
-These findings could help the bank plan a campaign test. They do not show proven savings or revenue growth.
+My analysis found differences in subscription rates across customer groups. The weighted model identified more subscribers but also incorrectly flagged more non-subscribers. Based on these results, I recommend testing targeted outreach before expanding the campaign.
 
 ## Recommendations
 
@@ -61,3 +59,4 @@ This project uses historical data and saved model results. No live campaign was 
 
 - [Customer segmentation](segmentation.md)
 - [Model evaluation](model_evaluation.md)
+
