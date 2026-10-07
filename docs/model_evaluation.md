@@ -2,27 +2,27 @@
 
 ## Purpose
 
-Explore whether prediction models could help a bank identify customers who are likely to subscribe to a term deposit.
+I compared prediction models to understand how they could help a bank identify customers likely to subscribe to a term deposit.
 
-## How the models were tested
+## How I tested the models
 
-The data was split into 80% for training and 20% for testing, keeping a similar share of subscribers in both sets.
+I split the data into 80% for training and 20% for testing, keeping a similar proportion of subscribers in both sets.
 
-The test set contained 9,043 records, including 1,058 subscribers. Call duration was excluded from the model inputs.
+The test set contained 9,043 records, including 1,058 subscribers. I excluded call duration from the inputs because it would not be available before contacting a customer.
 
-## Why accuracy was not enough
+## Why I looked beyond accuracy
 
-Only about 11.7% of customers subscribed. Predicting “no” for every customer would achieve around 88.3% accuracy while missing every subscriber.
+Only about 11.7% of customers subscribed. Predicting “no” for everyone would achieve around 88.3% accuracy but miss every subscriber.
 
-I therefore reviewed precision, recall, and F1-score alongside accuracy.
+I therefore compared accuracy with three other measures:
 
-- **Precision:** Of the customers predicted to subscribe, how many actually subscribed?
-- **Recall:** Of all actual subscribers, how many did the model identify?
+- **Precision:** How many customers predicted to subscribe actually subscribed.
+- **Recall:** How many actual subscribers the model identified.
 - **F1-score:** A measure that balances precision and recall.
 
-## Results
+## Model results
 
-Precision, recall, and F1-score below refer to the subscriber class. Figures are rounded from the saved notebook outputs.
+Precision, recall, and F1-score below refer to customers who subscribed. Figures are rounded.
 
 | Model | Accuracy | Precision | Recall | F1-score |
 | --- | ---: | ---: | ---: | ---: |
@@ -33,36 +33,43 @@ Precision, recall, and F1-score below refer to the subscriber class. Figures are
 | LightGBM | 89.4% | 64% | 21% | 0.31 |
 | LightGBM with class weighting | 80.4% | 32% | 61% | 0.42 |
 
-This table shows the initial models and the weighted LightGBM model explored further in the analysis. Additional weighted models are available in the notebook.
+This table summarises my initial models and the weighted LightGBM model I explored further. The notebook also includes other weighted models.
 
 ## What class weighting changed
 
-Giving more weight to subscribers during training helped LightGBM identify more of them.
+I gave subscribers more weight during LightGBM training to help the model identify more of this smaller group.
 
 On the same test set:
 
-- Standard LightGBM identified 220 of 1,058 subscribers and incorrectly flagged 124 non-subscribers.
-- Weighted LightGBM identified 641 subscribers and incorrectly flagged 1,355 non-subscribers.
+| Result | Standard LightGBM | Weighted LightGBM |
+| --- | ---: | ---: |
+| Subscribers correctly identified | 220 | 641 |
+| Subscribers missed | 838 | 417 |
+| Non-subscribers incorrectly flagged | 124 | 1,355 |
 
-Recall increased from around 21% to 61%, but precision fell from 64% to 32%.
+Recall increased from around 21% to 61%, while precision fell from 64% to 32%.
 
-The weighted model also achieved a ROC-AUC score of 0.7752, which measures how well it ranks subscribers above non-subscribers across different thresholds.
+The weighted model identified more actual subscribers, but it also made more incorrect positive predictions.
 
-## Business meaning
+Its ROC-AUC score was 0.7752, showing how well it distinguished subscribers from non-subscribers across prediction thresholds.
 
-The weighted model found more potential subscribers, but also produced a longer list of customers who did not subscribe.
+## What this means for campaign planning
 
-Choosing a model depends on the campaign goal and budget. A team with limited calling capacity may value precision more, while a team aiming to reach more potential subscribers may accept lower precision for higher recall.
+The results show a trade-off between reaching more potential subscribers and keeping the contact list focused.
 
-These test results do not show actual campaign savings or extra subscriptions.
+With limited calling capacity, higher precision could help reduce contacts with customers unlikely to subscribe. If the aim is to identify more potential subscribers, higher recall may be useful, provided the team can handle the additional contacts.
 
-## Next steps
+I would compare prediction thresholds against the campaign budget and calling capacity before recommending a model for use.
 
-- Compare prediction thresholds against available calling capacity.
-- Estimate contact costs and the value of a subscription.
-- Validate performance on a later period of data.
-- Run a small campaign test before wider use.
+## Recommended next steps
+
+- Compare thresholds to find a suitable contact-list size.
+- Include contact costs and the expected value of a subscription.
+- Test the model on data from a later period.
+- Run a small campaign test to compare model-based targeting with the usual approach.
+
+These results measure prediction performance on historical data. Campaign impact would need to be measured through the proposed test.
 
 ## Notebook
 
-[View the subscription prediction analysis](../notebooks/02_subscription_prediction.ipynb)
+[View my subscription prediction analysis](../notebooks/02_subscription_prediction.ipynb)
