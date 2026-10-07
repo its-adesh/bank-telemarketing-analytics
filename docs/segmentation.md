@@ -26,6 +26,10 @@ Cluster numbers are labels, not rankings. Figures are rounded.
 | Cluster 3 | 2.4% | 43.5 | 15.1% |
 | Cluster 4 | 9.0% | 40.3 | 15.3% |
 
+![Subscription rates by customer group](../reports/figures/cluster_subscription_rates.png)
+
+Cluster 0 had the highest subscription rate. The chart shows proportions, so 0.227 means 22.7%.
+
 ## Key findings
 
 - Cluster 0 had the highest subscription rate at 22.7%, while representing 13.9% of customers.
