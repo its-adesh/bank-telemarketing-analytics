@@ -80,7 +80,7 @@ The findings come from historical data. A campaign test would be needed to measu
 
 ## Project status
 
-The notebooks, supporting documentation, and customer subscription chart are available. Reports, more charts, and the Tableau workbook will be added next.
+The notebooks, documentation, charts, and case-study presentation are available. The Tableau workbook will be added next.
 
 ## Acknowledgement
 
