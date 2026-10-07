@@ -84,8 +84,6 @@ I built an interactive Tableau dashboard to explore customer subscription patter
 
 [View the Interactive Dashboard on Tableau Public](https://public.tableau.com/app/profile/aadesh.baral8088/viz/bank_marketing_dashboard_17913543953770/Dashboard1?publish=yes)
 
-[![Bank Marketing Tableau Dashboard](tableau/bank_marketing_dashboard.png)](https://public.tableau.com/app/profile/aadesh.baral8088/viz/bank_marketing_dashboard_17913543953770/Dashboard1?publish=yes)
-
 You can also download the Tableau workbook here:
 
 [Download Tableau Workbook](tableau/bank_marketing_dashboard.twbx)
