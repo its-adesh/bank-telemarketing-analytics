@@ -37,6 +37,16 @@ The analysis could help a marketing team:
 
 These are potential uses of the analysis. The project does not measure actual campaign savings or increases in subscriptions.
 
+## Key findings
+
+- Cluster 0 had the highest subscription rate at 22.7%, compared with 8.8% in the largest group, Cluster 1. This suggests a customer group worth exploring for targeted campaigns.
+- Giving more weight to subscribers during LightGBM training increased recall from 21% to 61%. This helped identify more actual subscribers, but precision fell from 64% to 32%, meaning more unsuccessful contacts.
+- The five customer groups overlapped, with a silhouette score of 0.17. These groups are a starting point for exploration and need further validation before use in campaigns.
+
+## What this means for the business
+
+A useful next step would be to test a targeted campaign with a small customer group. The bank could compare subscription rates and contact costs before deciding whether to expand it.
+
 ## Tools used
 
 - Python for data preparation, customer segmentation, and prediction.
@@ -51,7 +61,7 @@ These are potential uses of the analysis. The project does not measure actual ca
 
 ## Project status
 
-The notebooks are available now. Reports, key findings, charts, and supporting documentation will be added next. The Tableau workbook will be added once repaired.
+The notebooks are available now. Reports, charts, and supporting documentation will be added next. The Tableau workbook will be added once repaired.
 
 ## Acknowledgement
 
