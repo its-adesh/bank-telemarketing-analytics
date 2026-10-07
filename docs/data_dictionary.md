@@ -1,6 +1,6 @@
 # Data Dictionary
 
-This guide explains the dataset columns and how they were prepared for analysis.
+This guide explains the fields I used and how I prepared them for analysis.
 
 ## Customer details
 
@@ -11,7 +11,7 @@ This guide explains the dataset columns and how they were prepared for analysis.
 | marital | Marital status |
 | education | Education category |
 | default | Whether the customer has credit in default |
-| balance | Average yearly balance, in euros, according to the standard dataset definition |
+| balance | Average yearly balance in euros |
 | housing | Whether the customer has a housing loan |
 | loan | Whether the customer has a personal loan |
 
@@ -22,8 +22,8 @@ This guide explains the dataset columns and how they were prepared for analysis.
 | contact | Communication channel |
 | day | Day of the month of the last contact |
 | month | Month of the last contact |
-| duration | Length of the last contact, in seconds |
-| campaign | Number of contacts in the current campaign for this customer |
+| duration | Length of the last contact in seconds |
+| campaign | Number of contacts in the current campaign for this customer, including the last contact |
 | pdays | Days since contact in a previous campaign; -1 means no previous contact |
 | previous | Number of contacts before the current campaign |
 | poutcome | Outcome of the previous campaign |
@@ -34,26 +34,22 @@ This guide explains the dataset columns and how they were prepared for analysis.
 | --- | --- |
 | y | Whether the customer subscribed to a term deposit |
 
-The notebooks convert `yes` to 1 and `no` to 0.
+I converted `yes` to 1 and `no` to 0.
 
-For prediction, `y` is the target. For clustering, it is excluded from the inputs and used afterwards to compare subscription rates.
+I used `y` as the target for prediction. For clustering, I excluded it from the inputs and used it afterwards to compare subscription rates across the groups.
 
-## Additional fields
+## Additional workbook fields
 
-The project workbook contains two fields that are not part of the standard bank-full field list.
-
-| Column | Use in the notebook |
+| Column | How I used it |
 | --- | --- |
 | Int.R08 | Removed during preparation |
 | Int.Rate09 | Retained as a numeric input |
 
-Their exact definitions, units, and source need to be confirmed from the original workbook documentation.
-
-## Fields created during preparation
+## Fields I created
 
 ### pdays_category
 
-Groups customers by time since previous contact:
+I grouped customers by the time since their previous contact.
 
 | Original value | Category |
 | --- | --- |
@@ -64,11 +60,11 @@ Groups customers by time since previous contact:
 | More than 365 days | Dormant Customers |
 | Other values | Other |
 
-These are labels used in the notebook. They describe contact timing, not measured customer engagement.
+I used these labels to describe contact timing. They do not measure customer interest or engagement directly.
 
 ### previous_category
 
-Groups customers by the number of previous contacts:
+I grouped customers by their number of previous contacts.
 
 | Original value | Category |
 | --- | --- |
@@ -79,15 +75,15 @@ Groups customers by the number of previous contacts:
 | 21 or more | Very High Previous Contact |
 | Other values | Other |
 
-## Preparation notes
+## Data preparation
 
-- Removed `Int.R08`, `day`, `month`, `duration`, and `campaign`.
-- Replaced `pdays` and `previous` with the categories above.
-- Converted categorical inputs into numeric indicator columns using one-hot encoding.
-- Applied scaling before modelling.
+- I removed `Int.R08`, `day`, `month`, `duration`, and `campaign`.
+- I replaced `pdays` and `previous` with the categories above.
+- I converted categorical inputs into numeric indicator columns using one-hot encoding.
+- I applied scaling before modelling.
 
-Excluding call duration avoids using information that would only be available after a call.
+Call duration is only available after a call, so excluding it keeps that information out of predictions intended for use before contact.
 
 ## Reference
 
-Standard field descriptions were checked against the [UCI Bank Marketing documentation](https://archive.ics.uci.edu/dataset/222/bank). The extra fields in the project workbook require separate confirmation.
+[UCI Bank Marketing dataset documentation](https://archive.ics.uci.edu/dataset/222/bank)
